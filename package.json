@@ -1,0 +1,22 @@
+{
+  "name": "numenera",
+  "version": "0.0.0",
+  "description": "Numenera Cypher App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:obscure-waters-5611.git"
+  },
+  "author": "Dylan Whitney <thedylanwhitney@gmail.com>",
+  "license": "BSD",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "express": "~3.4.7",
+    "logfmt": "~0.18.1"
+  }
+}
