@@ -1,0 +1,18 @@
+<h1>
+  Number of Cyphers: 
+  <small ng-repeat="roll in rolls">{{$first ? '(' : ''}}{{ roll.result }}{{$last ? ')' : ' + '}}</small>
+  <small ng-repeat="num in nonRolls">{{ num.result }}</small>
+</h1>
+<div id="masonry">
+  <div class="cypher brick" ng-repeat="cypher in cyphers track by $index" masonry-set-up>
+    <div class="cypher-content">
+      <p class="pull-right">#{{ $index + 1 }}</p>
+      <h2 class="cypher-title">{{ cypher.name }}</h2>
+      <p><strong>Level:</strong> {{ cypher.level }}</p>
+      <div>
+        <strong>Effect:</strong>
+        <div ng-bind-html="cypher.effect"></div>
+      </div>
+    </div>
+  </div>
+</div>

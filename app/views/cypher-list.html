@@ -1,0 +1,23 @@
+<h1>Cyphers Listing</h1>
+<div class="cypher-search">
+  <label for="search">Search for Cyphers:</label>
+  <input id="search" class="form-control" type="text" ng-model="search" ng-keyup="rebuildMasonry()">
+</div>
+<div id="masonry">
+  <div class="cypher brick" ng-repeat="cypher in cyphers | orderBy:'id' | filter:search" masonry-set-up>
+    <div class="cypher-content">
+      <h2 class="cypher-title">{{ cypher.name }}</h2>
+      <p><strong>Level:</strong> {{ cypher.level }}</p>
+      <div>
+        <strong>Form:</strong>
+        <ul>
+          <li ng-repeat="item in cypher.form">{{ item }}</li>
+        </ul>
+      </div>
+      <div>
+        <strong>Effect:</strong>
+        <div ng-bind-html="cypher.effect"></div>
+      </div>
+    </div>
+  </div>
+</div>

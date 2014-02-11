@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="numenera">
+  <head>
+    <meta charset="utf-8">
+    <title>Numenera Cyper Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Numenera Cyper Generator</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/cypher-list">Cypher List</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="content" class="container" ng-view></div>
+    
+    <script src="/js/numenera.js"></script>
+  </body>
+</html>
