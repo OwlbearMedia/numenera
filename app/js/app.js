@@ -71,7 +71,7 @@ numenera.service('Cyphers', ['$http', '$rootScope', function($http, $rootScope) 
 
       for(var j = 0, k = service.cyphers.length; j < k; j++) {
         if(service.cyphers[j].id === id) {
-          cypher = service.cyphers[j];
+          cypher = jQuery.extend({}, service.cyphers[j]);
         }
       }
       
@@ -152,18 +152,46 @@ numenera.controller('CyphersController', function($scope, $routeParams, Cyphers,
       // Then add to the array. We need to add as an object since the array wouldn't allow duplicate indexes
       var temp = Cyphers.getCypher(number);
       //temp.form = temp.form[parseInt((Math.random() * temp.form.length), 10)];
-      //temp = refineCypher(temp);
+      temp = refineCypher(temp);
       $scope.cyphers.push(temp);
     }
   }
 
   function refineCypher(cypher) {
-    var level = null,
-        lvlMod = 0;
+    cypher = rollLevel(cypher);
+    cypher = determineForm(cypher);
+
+    return cypher;
+  }
+
+  function rollLevel(cypher) {
+    var level = 0,
+        rolling = null;
 
     if(cypher.level.indexOf('+') > 0) {
-
+      var rolling = cypher.level.split('+');
+      
+      for(var i = 0, l = rolling.length; i < l; i++) {
+        var temp = 0;
+        if(rolling[i].indexOf('d') > 0) {
+          temp = Dice.roll(rolling[i]);
+          level = level + temp.total;
+        } else {
+          level = level + parseInt(rolling[i], 10);
+        }
+      }
+      cypher.level = level
+    } else if (cypher.level.indexOf('d') > 0) {
+      level = Dice.roll(cypher.level);
+      cypher.level = level.total;
     }
+    
+    return cypher;
+  }
+
+  function determineForm(cypher) {
+    cypher.form = cypher.form[parseInt((Math.random() * cypher.form.length), 10)];
+
     return cypher;
   }
 
