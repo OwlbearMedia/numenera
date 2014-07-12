@@ -21682,7 +21682,7 @@ numenera.controller('CyphersController', function($scope, $routeParams, Cyphers,
         number = parseInt((Math.random() * 100 + 1), 10);
       // Otherwise add 100 to use the cypher from Cypher Collection 1
       } else {
-        number = number + 100;
+        //number = number + 100;
       }
       // Then add to the array. We need to add as an object since the array wouldn't allow duplicate indexes
       var temp = Cyphers.getCypher(number);

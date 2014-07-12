@@ -5,9 +5,11 @@ function Cyphers() {}
 var cypherSchema = new mongoose.Schema({
   id: Number,
   name: String,
+  type: String,
   level: String,
   form: [String],
   effect: String,
+  extras: [String],
   book: String,
   page: Number 
 });
