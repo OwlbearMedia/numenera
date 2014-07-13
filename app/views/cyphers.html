@@ -6,13 +6,16 @@
 <div id="masonry">
   <div class="cypher brick" ng-repeat="cypher in cyphers track by $index" masonry-set-up>
     <div class="cypher-content">
-      <p class="pull-right">#{{ $index + 1 }}</p>
+      <p class="pull-right cypher-index">#{{ $index + 1 }}</p>
       <h2 class="cypher-title">{{ cypher.name }}</h2>
       <p><strong>Level:</strong> {{ cypher.level }}</p>
       <p><strong>Form:</strong> {{ cypher.form }}</p>
       <div>
         <strong>Effect:</strong>
         <div ng-bind-html="cypher.effect"></div>
+        <ul class="cypher-extras">
+          <li ng-repeat="extra in cypher.extras">{{ extra }}</li>
+        </ul>
       </div>
     </div>
   </div>

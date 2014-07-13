@@ -17,6 +17,9 @@
       <div>
         <strong>Effect:</strong>
         <div ng-bind-html="cypher.effect"></div>
+        <ul class="cypher-extras">
+          <li ng-repeat="extra in cypher.extras">{{ extra }}</li>
+        </ul>
       </div>
     </div>
   </div>
